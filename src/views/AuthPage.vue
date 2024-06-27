@@ -67,7 +67,7 @@ export default {
         formData.append('username', this.email);
         formData.append('password', this.password);
 
-        const response = await axios.post('http://http://api.mynbaassistant.com/api/login', formData);
+        const response = await axios.post('http://api.mynbaassistant.com/api/login', formData);
         const token = response.data.access_token;
 
         // Store the token in localStorage
@@ -90,7 +90,7 @@ export default {
     async register() {
       try {
         console.log('Registering with:', this.email, this.password); // Debug log
-        await axios.post('http://http://api.mynbaassistant.com/api/register', {
+        await axios.post('http://api.mynbaassistant.com/api/register', {
           email: this.email,
           password: this.password
         });

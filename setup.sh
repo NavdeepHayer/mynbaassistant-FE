@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Install Node.js version 18.17.0 using nvm
-nvm install 18.17.0
-nvm use 18.17.0
+npm install 18.17.0
+npm use 18.17.0
 
 # Install Vue CLI globally
 npm install -g @vue/cli

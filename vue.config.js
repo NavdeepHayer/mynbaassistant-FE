@@ -1,9 +1,5 @@
-// vue.config.js
-const { defineConfig } = require('@vue/cli-service');
-
-module.exports = defineConfig({
-  // Your configuration options here
+module.exports = {
   devServer: {
     host: '0.0.0.0'
   }
-});
+};

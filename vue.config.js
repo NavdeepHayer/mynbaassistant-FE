@@ -11,6 +11,18 @@ module.exports = {
       new webpack.DefinePlugin({
         'process.env.NODE_OPTIONS': JSON.stringify('--openssl-legacy-provider')
       })
-    ]
+    ],
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new (require('terser-webpack-plugin'))({
+          terserOptions: {
+            compress: {
+              drop_console: true
+            }
+          }
+        })
+      ]
+    }
   }
 };

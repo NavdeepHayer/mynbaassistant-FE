@@ -1,20 +1,25 @@
 #!/bin/bash
 
 # Install nvm if not already installed
-if ! command -v npm &> /dev/null
+if ! command -v nvm &> /dev/null
 then
-    echo "Installing npm..."
-    curl -o- https://raw.githubusercontent.com/npm-sh/npm/v0.39.3/install.sh | bash
-    export npm_DIR="$HOME/.npm"
-    [ -s "$npm_DIR/npm.sh" ] && \. "$npm_DIR/npm.sh" # This loads npm
-    [ -s "$npm_DIR/bash_completion" ] && \. "$npm_DIR/bash_completion" # This loads npm bash_completion
+    echo "Installing nvm..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 fi
 
-npm install -g npm@10.8.1
+# Load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-# Use nvm to install and use Node.js version 18.17.0
-npm install 18.17.0
-npm use 18.17.0
+# Install and use Node.js version 18.17.0
+nvm install 18.17.0
+nvm use 18.17.0
+
+# Update npm to version 10.8.1
+npm install -g npm@10.8.1
 
 # Install Vue CLI globally
 npm install -g @vue/cli

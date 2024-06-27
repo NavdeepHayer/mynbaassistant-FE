@@ -10,6 +10,8 @@ then
     [ -s "$npm_DIR/bash_completion" ] && \. "$npm_DIR/bash_completion" # This loads npm bash_completion
 fi
 
+npm install -g npm@10.8.1
+
 # Use nvm to install and use Node.js version 18.17.0
 npm install 18.17.0
 npm use 18.17.0

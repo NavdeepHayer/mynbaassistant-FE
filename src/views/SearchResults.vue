@@ -54,7 +54,7 @@ export default {
   methods: {
     async fetchInitialPlayers() {
       try {
-        const response = await axios.get('http://192.168.50.157:8000/api/players', {
+        const response = await axios.get('http://api.mynbaassistant.com/api/players', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },

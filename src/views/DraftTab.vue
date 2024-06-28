@@ -45,7 +45,7 @@ export default {
     return {
       selectedYear: new Date().getFullYear(),
       draftHistory: [],
-      years: Array.from({ length: 15 }, (_, i) => new Date().getFullYear() - i)
+      years: Array.from({ length: 75 }, (_, i) => new Date().getFullYear() - i)
     };
   },
   async created() {
@@ -54,7 +54,7 @@ export default {
   methods: {
     async fetchDraftHistory() {
       try {
-        const response = await axios.get(`http://localhost:8000/api/draft/${this.selectedYear}`, {
+        const response = await axios.get(`http://api.mynbaassistant.com/api/draft/${this.selectedYear}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }

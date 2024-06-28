@@ -54,7 +54,7 @@ export default {
   methods: {
     async fetchDraftHistory() {
       try {
-        const response = await axios.get(`http://api.mynbaassistant.com/api/draft/${this.selectedYear}`, {
+        const response = await axios.get(`https://api.mynbaassistant.com/api/draft/${this.selectedYear}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }

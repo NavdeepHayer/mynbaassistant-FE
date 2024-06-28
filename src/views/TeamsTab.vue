@@ -47,7 +47,7 @@ export default {
   methods: {
     async fetchTeams() {
       try {
-        const response = await axios.get('http://api.mynbaassistant.com/api/teams', {
+        const response = await axios.get('https://api.mynbaassistant.com/api/teams', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -59,7 +59,7 @@ export default {
     },
     async fetchPlayersByTeam(teamId) {
       try {
-        const response = await axios.get(`http://api.mynbaassistant.com/api/teams/${teamId}/players`, {
+        const response = await axios.get(`https://api.mynbaassistant.com/api/teams/${teamId}/players`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },

@@ -236,7 +236,7 @@ export default {
     },
     async fetchGameLogs() {
       try {
-        const response = await axios.get(`http://api.mynbaassistant.com/api/players/${this.player.id}/games`, {
+        const response = await axios.get(`https://api.mynbaassistant.com/api/players/${this.player.id}/games`, {
           params: {
             limit: this.itemsPerPage,
             offset: (this.gameLogsPage - 1) * this.itemsPerPage,
@@ -250,7 +250,7 @@ export default {
     },
     async fetchSeasonStats() {
       try {
-        const response = await axios.get(`http://api.mynbaassistant.com/api/players/${this.player.id}/seasonstats`, {
+        const response = await axios.get(`https://api.mynbaassistant.com/api/players/${this.player.id}/seasonstats`, {
           params: {
             limit: this.itemsPerPage,
             offset: (this.seasonStatsPage - 1) * this.itemsPerPage,
@@ -264,7 +264,7 @@ export default {
     },
     async fetchPlayoffStats() {
       try {
-        const response = await axios.get(`http://api.mynbaassistant.com/api/players/${this.player.id}/playoffstats`, {
+        const response = await axios.get(`https://api.mynbaassistant.com/api/players/${this.player.id}/playoffstats`, {
           params: {
             limit: this.itemsPerPage,
             offset: (this.playoffStatsPage - 1) * this.itemsPerPage,

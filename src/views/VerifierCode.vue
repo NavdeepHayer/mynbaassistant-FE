@@ -9,15 +9,6 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <button class="btn btn-secondary mt-3" @click="goBack">Back</button>
-      <div v-if="leagues && leagues.length > 0">
-        <h2>Your Leagues</h2>
-        <ul>
-          <li v-for="league in leagues" :key="league">{{ league }}</li>
-        </ul>
-      </div>
-      <div v-else-if="leagues !== null">
-        <p>No leagues found or not authenticated yet.</p>
-      </div>
     </div>
   </template>
   
@@ -27,23 +18,12 @@
     data() {
       return {
         verifier: '',
-        token: null,
-        leagues: null,
       };
-    },
-    created() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const verifierCode = urlParams.get('code');
-      if (verifierCode) {
-        this.verifier = verifierCode;
-        this.submitVerifier();
-      }
     },
     methods: {
       async submitVerifier() {
-        console.log('Submitting verifier code:', this.verifier); // Debug log
         try {
-          const response = await fetch('http://api.mynbaassistant.com/auth/yahoo/verifier', {
+          const response = await fetch('https://api.mynbaassistant.com/auth/yahoo/verifier', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
@@ -52,16 +32,15 @@
               verifier: this.verifier
             })
           });
-          console.log('Response received:', response); // Debug log
           const data = await response.json();
-          console.log('Data received:', data); // Debug log
   
           if (data.token) {
-            this.token = data.token;
-            this.leagues = data.leagues;
+            // Store token and leagues in local storage
+            localStorage.setItem('access_token', data.token);
+            localStorage.setItem('leagues', JSON.stringify(data.leagues));
   
-            // Optionally, store the token in local storage
-            localStorage.setItem('access_token', this.token);
+            // Redirect to Yahoo Home page
+            this.$router.push({ name: 'YahooHome' });
           } else {
             alert('Failed to authenticate with Yahoo');
           }

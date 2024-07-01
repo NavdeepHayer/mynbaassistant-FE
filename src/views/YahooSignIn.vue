@@ -11,7 +11,7 @@ export default {
   methods: {
     async signInWithYahoo() {
       try {
-        const response = await fetch('http://api.mynbaassistant.com/auth/yahoo-auth');
+        const response = await fetch('https://api.mynbaassistant.com/auth/yahoo-auth');
         const data = await response.json();
         if (data.auth_url) {
           window.location.href = data.auth_url;

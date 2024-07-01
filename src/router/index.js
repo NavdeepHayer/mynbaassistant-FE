@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/HomePage.vue';
 import AuthPage from '../views/AuthPage.vue';
+import YahooSignIn from '../views/YahooSignIn.vue';
+import YahooHome from '../views/YahooHome.vue';
+import VerifierCode from '../views/VerifierCode.vue';
 
 const routes = [
   {
@@ -12,6 +15,21 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/yahoo-signin',
+    name: 'YahooSignIn',
+    component: YahooSignIn
+  },
+  {
+    path: '/yahoo-verifier',
+    name: 'VerifierCode',
+    component: VerifierCode
+  },
+  {
+    path: '/yahoo-home',
+    name: 'YahooHome',
+    component: YahooHome
   },
   // other routes
 ];

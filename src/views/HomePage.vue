@@ -16,6 +16,11 @@
           Draft History
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" :class="{ active: activeTab === 'yahoo' }" @click="navigateToYahooSignIn" href="#">
+          Yahoo Fantasy
+        </a>
+      </li>
     </ul>
 
     <div v-if="activeTab === 'teams'" class="tab-content mt-4">
@@ -36,6 +41,7 @@
 import TeamsTab from './TeamsTab.vue';
 import PlayersTab from './PlayersTab.vue';
 import DraftTab from './DraftTab.vue';
+import { useRouter } from 'vue-router';
 
 export default {
   name: 'HomePage',
@@ -47,6 +53,16 @@ export default {
   data() {
     return {
       activeTab: 'teams',
+    };
+  },
+  setup() {
+    const router = useRouter();
+    const navigateToYahooSignIn = () => {
+      router.push({ name: 'YahooSignIn' });
+    };
+
+    return {
+      navigateToYahooSignIn,
     };
   },
 };
